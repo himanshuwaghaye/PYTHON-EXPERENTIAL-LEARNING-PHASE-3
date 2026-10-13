@@ -1,6 +1,6 @@
 """
-English to Hindi Translator (AnuvadSetu / अनुवाद सेतु)
-====================================================
+English to Hindi Translator
+===========================
 A full-stack translation application written entirely in Python.
 - Frontend: Modern, clean, responsive UI served directly via Flask.
 - Backend: Multi-tier fallback translation engine with Google API,
@@ -256,7 +256,7 @@ FRONTEND_HTML = r"""<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AnuvadSetu | English to Hindi AI Translator</title>
+    <title>English to Hindi Translator</title>
     <meta name="description" content="Clean, responsive English to Hindi AI Translator with voice input, audio pronunciation, transliteration, and instant translation.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1161,8 +1161,8 @@ FRONTEND_HTML = r"""<!DOCTYPE html>
                     </svg>
                 </div>
                 <div class="brand-text">
-                    <h1>AnuvadSetu <span class="devanagari">अनुवाद सेतु</span></h1>
-                    <p>English to Hindi Neural AI Translator • Python & Vercel Ready</p>
+                    <h1>English to Hindi Translator</h1>
+                    <p>Neural AI Translation • Python & Vercel Ready</p>
                 </div>
             </div>
 
@@ -1386,7 +1386,7 @@ FRONTEND_HTML = r"""<!DOCTYPE html>
 
         <!-- Footer -->
         <footer>
-            <p>AnuvadSetu • Built entirely in Python with Flask & Devanagari Engine • Optimized for Vercel Deployment</p>
+            <p>English to Hindi Translator • Built entirely in Python with Flask & Devanagari Engine • Optimized for Vercel Deployment</p>
         </footer>
     </div>
 
@@ -1427,7 +1427,7 @@ FRONTEND_HTML = r"""<!DOCTYPE html>
             autoTranslate: true,
             debounceTimer: null,
             isTranslating: false,
-            history: JSON.parse(localStorage.getItem('anuvad_history') || '[]'),
+            history: JSON.parse(localStorage.getItem('translator_history') || '[]'),
             presets: []
         };
 
@@ -1598,7 +1598,7 @@ FRONTEND_HTML = r"""<!DOCTYPE html>
             }
             state.history.unshift(item);
             if (state.history.length > 30) state.history.pop();
-            localStorage.setItem('anuvad_history', JSON.stringify(state.history));
+            localStorage.setItem('translator_history', JSON.stringify(state.history));
             renderHistory();
         }
 
@@ -1865,10 +1865,10 @@ FRONTEND_HTML = r"""<!DOCTYPE html>
         });
 
         // Theme Toggle
-        let currentTheme = localStorage.getItem('anuvad_theme') || 'dark';
+        let currentTheme = localStorage.getItem('translator_theme') || 'dark';
         function applyTheme(theme) {
             document.documentElement.setAttribute('data-theme', theme);
-            localStorage.setItem('anuvad_theme', theme);
+            localStorage.setItem('translator_theme', theme);
             if (theme === 'light') {
                 themeIconDark.style.display = 'none';
                 themeIconLight.style.display = 'block';
@@ -1890,7 +1890,7 @@ FRONTEND_HTML = r"""<!DOCTYPE html>
 
         clearAllHistoryBtn.addEventListener('click', () => {
             state.history = [];
-            localStorage.removeItem('anuvad_history');
+            localStorage.removeItem('translator_history');
             renderHistory();
             showToast('History cleared');
         });
@@ -1966,7 +1966,7 @@ def handle_health():
     """Health check endpoint for Vercel and monitoring."""
     return jsonify({
         'status': 'healthy',
-        'app': 'AnuvadSetu English-Hindi Translator',
+        'app': 'English to Hindi Translator',
         'engine': 'Python Multi-Tier Neural Translation',
         'runtime': 'Python WSGI'
     })
@@ -1977,7 +1977,7 @@ def handle_health():
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     print("=" * 60)
-    print("[AnuvadSetu] English to Hindi AI Translator")
+    print("English to Hindi Translator")
     print(f">> Server running locally at: http://localhost:{port}")
     print("=" * 60)
     app.run(host='0.0.0.0', port=port, debug=False)

@@ -1,4 +1,4 @@
-# AnuvadSetu (अनुवाद सेतु) - English to Hindi AI Translator
+# English to Hindi AI Translator
 
 A full-stack, clean English-to-Hindi neural translation web application built **entirely in Python** with Flask, featuring modern glassmorphism UI aesthetics, Devanagari romanization, voice dictation, speech synthesis, and ready for **1-click Vercel deployment**.
 
